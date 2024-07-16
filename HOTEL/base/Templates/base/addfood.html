@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Food</title>
+    <link rel="stylesheet" href="{% static 'css/addfood.css' %}">
+</head>
+<body>
+    {% include "Asidenav.html" %} 
+
+    <div class="container">
+        <div class="login-form">
+            <h1 class="text-center">ADD FOOD</h1>
+            <form method='POST'>
+                {% csrf_token %}
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td><label for="itemname">ITEM NAME</label></td>
+                            <td><input type="text" id="itemname" name="itemname" class="form-control" placeholder="Enter Item Name"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="price">ITEM PRICE</label></td>
+                            <td><input type="number" id="price" name="price" class="form-control" placeholder="Enter Item Price"></td>
+                        </tr>
+                        <tr>
+                            <td><label for="details">ITEM DETAILS</label></td>
+                            <td><input type="text" id="details" name="details" class="form-control" placeholder="Enter Item Details"></td>
+                        </tr>
+                        <tr>
+                            <td colspan="2" class="text-center">
+                                <button type="button" id='btn1' name="btn1" class="btn btn-danger mt-3">Add Item</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $('#btn1').click(()=>{
+            var itemname =$('#itemname').val()
+            var price=$('#price').val()
+            var details=$('#details').val()
+            var data ={
+                'csrfmiddlewaretoken':'{{csrf_token}}',
+                'itemname':itemname,
+                'price':price,
+                'details':details
+            };
+            
+            
+                $.ajax({
+                    url:'{% url "Add_food" %}',
+                    method:'POST',
+                    data:data,
+                    dataType:'json',
+                    success: function(data) {
+                        if (data.success) {
+                            alert(data.message)
+                            location.reload(); 
+
+                        }else{
+                            alert(data.message)
+                        }
+                    }
+                })
+            
+        })
+    </script>
+</body>
+</html>

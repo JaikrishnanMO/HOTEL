@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>view-request</title>
+    <link rel="stylesheet" href="{% static 'css/kviewreq.css' %}">
+</head>
+<body>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>ITEM NAME</th>
+                    <th>QUANTITY</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in bill %}
+                {% if item.total_price > 0 %}
+                <tr>
+                    <td>{{ item.item.item_name }}</td> <!-- Access item name through 'item.item_name' -->
+                    <td>{{ item.quantity }}</td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="{% url 'kitchen_home' %}" class="btn btn-primary mt-3">Back to Kitchen Home</a>
+    </div>
+</body>
+</html>

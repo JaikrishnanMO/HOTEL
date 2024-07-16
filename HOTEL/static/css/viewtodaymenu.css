@@ -1,0 +1,93 @@
+/* viewtodaymenu.css */
+
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: url('../images/cafe.jpg')no-repeat center center fixed;
+    background-size: cover;
+}
+
+/* Adding a background overlay */
+.overlay {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    margin-left: 250px; /* Assuming the Asidenav width is 250px */
+    min-height: 100vh;
+}
+
+/* Container Styles */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(0, 0, 0, 0.5); /* More transparent black */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Heading Styles */
+h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: white;
+}
+
+/* Table Styles */
+.table-responsive {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table thead th {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 10px;
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color:rgba(0, 0, 0, 0.5) ;
+    color: white;
+}
+
+table tbody tr td {
+    color: white;
+    padding: 10px;
+    border: 1px solid #dddddd;
+}
+
+/* Button Styles */
+.button {
+    display: inline-block;
+    padding: 10px 15px;
+    margin: 5px 0;
+    font-size: 0.875em;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.update-button {
+    background-color: #28a745;
+}
+
+.update-button:hover {
+    background-color: #218838;
+}
+
+.delete-button {
+    background-color: #dc3545;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}

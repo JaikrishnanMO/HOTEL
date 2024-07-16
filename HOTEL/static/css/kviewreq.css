@@ -1,0 +1,43 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a base font size and family */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f0f0f0; /* Light gray background */
+}
+
+/* Center content in the page */
+table {
+    width: 80%; /* Adjust the table width as needed */
+    margin: 20px auto;
+    background-color: #ffffff; /* White background */
+    border-collapse: collapse; /* Collapse table borders */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Light shadow for depth */
+}
+
+th, td {
+    padding: 12px; /* Padding inside table cells */
+    text-align: left; /* Align text to the left */
+    border-bottom: 1px solid #dddddd; /* Bottom border for table rows */
+}
+
+th {
+    background-color: #f2f2f2; /* Light gray background for table header */
+    color: #333333; /* Dark gray text color for headers */
+}
+
+/* Alternating row colors for better readability */
+tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Lighter gray background for even rows */
+}
+
+/* Hover effect on rows */
+tbody tr:hover {
+    background-color: #e9ecef; /* Light blue background on hover */
+}

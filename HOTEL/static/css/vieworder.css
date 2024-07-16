@@ -1,0 +1,52 @@
+/* Reset default margin and padding for the page */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Flexbox layout for page structure */
+.page-container {
+    display: flex;
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+/* Side Navigation Bar Styles */
+.sidenav {
+    width: 250px; /* Fixed width for side navigation */
+    background-color: #f1f1f1;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Main Content Area */
+.main-content {
+    flex: 1; /* Fill remaining space */
+    padding: 20px;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd; /* Border color */
+}
+
+table th, table td {
+    border: 1px solid #ddd; /* Border color */
+    padding: 8px;
+}
+
+table th {
+    background-color: #f2f2f2; /* Light gray background for headers */
+    text-align: left;
+}
+
+table tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Alternate row background color */
+}
+
+table tbody tr:hover {
+    background-color: #f1f1f1; /* Hover effect */
+}

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/Asidenav.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <h2>Admin Menu</h2>
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{% url 'Admin_home' %}">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'Add_food' %}">Add Food</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'view_food' %}">View</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'today_menu'%}">Today Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'view_today_menu'%}"> View-Today Menu</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{% url 'view_orders'%}"> View-Order</a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+

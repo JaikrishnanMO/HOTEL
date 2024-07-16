@@ -1,0 +1,63 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Details</title>
+    <link rel="stylesheet" href="{% static 'css/viewbill.css' %}">
+</head>
+<body>
+    {% include "Asidenav.html" %}
+    <div id="content">
+        <h1>Order {{ order.id }}</h1>
+        <p>Table: {{ order.table }}</p>
+        <p>Time: {{ order.created_at }}</p>
+
+        <h2>Items</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Quantity</th>
+                    <th>Total Price</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for item in bill %}
+                    {% if item.total_price > 0 %}
+                        <tr>
+                            <td>{{ item.item.item_name }}</td>
+                            <td>{{ item.quantity }}</td>
+                            <td>{{ item.total_price }}</td>
+                        </tr>
+                    {% endif %}
+                {% endfor %}
+                {% if bill|length == 0 %}
+                    <tr>
+                        <td colspan="3">No items with total greater than 0</td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+        
+        {% if bill %}
+            <p><strong>Grand Total: </strong>{{ grand_total }}</p>
+        {% endif %}
+
+        {% if bill %}
+            <form action="{% url 'accept_payment' food_id=order.pk %}" method="post">
+                {% csrf_token %}
+                <button class="accept-button" type="submit" name="accept_payment">
+                    {% if order.approve %}
+                        Payment Accepted
+                    {% else %}
+                        Accept Payment
+                    {% endif %}
+                </button>
+            </form>
+        {% endif %}
+    </div>
+</body>
+</html>

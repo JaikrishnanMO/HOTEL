@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Food</title>
+    <link rel="stylesheet" href="{% static "css/viewfood.css" %}">
+</head>
+<body>
+    {% include "Asidenav.html" %}
+    <div class="content">
+        <div class="container">
+            <h1 class="text-center">View Food Items</h1>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ITEM NAME</th>
+                            <th>PRICE</th>
+                            <th>DETAILS</th>
+                            <th>UPDATE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in food %}
+                        <tr>
+                            <td>{{ x.item_name }}</td>
+                            <td>{{ x.price }}</td>
+                            <td>{{ x.description }}</td>
+                            <td><a href="{% url 'update_food' x.id %}" class="button update-button">Update</a></td>
+                            <td><a href="{% url 'delete_food' x.id %}" class="button delete-button">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+
+/* adminlog.css */
+
+body {
+    background-image: url('../images/hotel1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    background-color: rgba(0, 0, 0, 0.8); /* Semi-transparent black background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Soft shadow effect */
+}
+
+.login-form {
+    color: white;
+    max-width: 400px;
+    margin: auto;
+    padding: 30px;
+    transition: all 0.3s ease;
+}
+
+.login-form h1 {
+    text-align: center;
+    color: white;
+    font-size: 24px;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.form-control {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn-danger {
+    background-color: #007bff; /* Bootstrap primary button color */
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+}
+
+.btn-danger:hover {
+    background-color: #0056b3; /* Darker shade on hover */
+}
+

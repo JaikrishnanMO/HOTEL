@@ -1,0 +1,53 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 250px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the content vertically */
+    padding-top: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 20px;
+    text-align: center; /* Center the heading text */
+    width: 100%;
+}
+
+.nav {
+    list-style-type: none;
+    padding: 0;
+    width: 100%; /* Ensure the nav takes full width */
+}
+
+.nav-item {
+    margin: 10px 0;
+    width: 100%; /* Ensure the nav-item takes full width */
+    display: flex; /* Use Flexbox to center the link */
+    justify-content: center; /* Center the link horizontally */
+}
+
+.nav-link {
+    color: black;
+    text-decoration: none;
+    font-size: 15px;
+    padding: 10px 0;
+    text-align: center; /* Center the text inside the link */
+}
+
+.nav-link:hover {
+    background-color: #e9ecef;
+    color: blue;
+    transition: background-color 0.3s ease;
+}

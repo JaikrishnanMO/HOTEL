@@ -1,0 +1,82 @@
+/* Reset default margin and padding */
+body, h1, h2, h3, h4, h5, h6, p, ul, ol, li, table {
+    margin: 0;
+    padding: 0;
+}
+
+/* Set a base font size and family */
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    background-color: #f0f0f0; /* Light gray background */
+    background-image: url('../images/hotel.jpg'); /* First background image */
+    background-size: cover; /* Cover the entire viewport */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Do not repeat the background image */
+}
+
+/* Center content in the page */
+.content {
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgba(0, 0, 255, 0.5); /* Transparent blue background */
+    box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Light shadow for depth */
+}
+
+.content h1 {
+    color: white; /* Dark gray heading color */
+    margin: 0;
+}
+
+.logout-button {
+    margin-top: 10px;
+}
+
+#content {
+    color: white;
+    margin: 20px auto;
+    padding: 20px;
+    /* background-color: rgba(0, 0, 255, 0.5);  */
+    /* box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Light shadow for depth */
+} */
+
+#content h1{
+    color: white;
+}
+
+table {
+    color: white;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background-color: rgba(0, 0, 255, 0.3); /* Semi-transparent blue background for table */
+}
+
+table th, table td {
+    border: 1px solid #dddddd; /* Light gray border */
+    padding: 8px;
+    text-align: left;
+}
+
+table th {
+    background-color: #f2f2f2; /* Light gray background for table header */
+    color: black;
+}
+
+table td {
+    color: white;
+}
+
+/* Style links */
+a {
+    color: #007bff; /* Bootstrap's primary color for links */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

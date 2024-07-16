@@ -1,0 +1,24 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete</title>
+    <link rel="stylesheet" href="{% static "css/deletefood.css" %}">
+<body>
+    {% include "Asidenav.html" %}
+    <div class="content">
+        <div class="container">
+            <h1 class="text-center">Delete Food Item</h1>
+            <p>Are you sure you want to delete '{{ food_item.item_name }}'?</p>
+            <form method="post">
+                {% csrf_token %}
+                <button type="submit" name="action" value="delete" class="delete-button">Delete</button>
+                <a href="{% url 'view_today_menu' %}" class="no-button">No</a>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

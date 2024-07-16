@@ -1,0 +1,83 @@
+/* CSS file: viewbill.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2; /* Light gray background color for the body */
+    margin: 0;
+    padding: 20px;
+}
+
+#content {
+    background-color: #fff; /* White background color for the content area */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for the content area */
+    border-radius: 5px;
+    margin: 20px auto;
+    max-width: 800px; /* Adjust maximum width as per your design */
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+h2 {
+    margin-top: 20px;
+    color: #555;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50; /* Background color for table headers */
+    color: white;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2; /* Background color for even rows */
+}
+
+tr:hover {
+    background-color: #ddd; /* Background color on hover */
+}
+
+.accept-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.accept-button:hover {
+    background-color: #45a049;
+}
+
+.accept-button:disabled {
+    background-color: #aaa; /* Gray background color when disabled */
+    cursor: not-allowed;
+}
+
+a {
+    color: #4CAF50; /* Link color */
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

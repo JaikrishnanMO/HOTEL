@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>update-food</title>
+    <link rel="stylesheet" href="{% static "css/updatefood.css" %}">
+</head>
+<body>
+    {% include "Asidenav.html" %}
+    <div class="content">
+        <div class="container">
+            <h1 class="text-center">Update Food Item</h1>
+            <form method="post">
+                {% csrf_token %}
+                <label for="item_name">Item Name:</label>
+                <input type="text" id="item_name" name="item_name" value="{{ food_item.item_name }}"><br><br>
+                <label for="price">Price:</label>
+                <input type="text" id="price" name="price" value="{{ food_item.price }}"><br><br>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description">{{ food_item.description }}</textarea><br><br>
+                <button type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

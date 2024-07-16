@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic styling for the entire page */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    padding: 20px;
+}
+
+/* Container for the entire content */
+.content {
+    margin-left: 250px; /* Width of the side navbar */
+    padding: 20px;
+}
+
+/* Styling for the main content area */
+.container {
+    max-width: 1200px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow-x: auto; /* Enable horizontal scroll if necessary */
+}
+
+/* Styling for the table */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+    padding: 10px;
+    text-align: left;
+}
+
+table td, table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+table td {
+    text-align: left;
+}
+
+/* Alternate row color for better readability */
+table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+}/* Button styling */
+.button {
+    display: inline-block;
+    padding: 8px 12px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+    text-decoration: none; /* Remove underline from links */
+}
+
+.button:hover {
+    background-color: #45a049; /* Darken the color on hover */
+}
+
+.update-button {
+    background-color: #2196F3; /* Update button color */
+}
+
+.delete-button {
+    background-color: #f44336; /* Delete button color */
+}
+
+.update-button:hover {
+    background-color: #0b7dda; /* Update button hover color */
+}
+
+.delete-button:hover {
+    background-color: #da190b; /* Delete button hover color */
+}

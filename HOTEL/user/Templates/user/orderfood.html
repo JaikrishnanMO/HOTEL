@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .order-table th, .order-table td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2>Order Food</h2>
+        <div id="alert-container"></div>
+        <form id="order-form" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="table">Select Table</label>
+                <select name="table" id="table" class="form-control">
+                    {% for table_code, table_name in TABLE_CHOICES %}
+                    <option value="{{ table_code }}">{{ table_name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <table class="table order-table">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if today_items %}
+                    {% for today_item in today_items %}
+                    <tr>
+                        <td>{{ today_item.add_item.item_name }}</td>
+                        <td>
+                            <input type="number" name="item_{{ today_item.id }}" min="0" value="0" class="form-control quantity">
+                        </td>
+                        <td>{{ today_item.add_item.price }}</td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="3">No items available for today.</td>
+                    </tr>
+                    {% endif %}
+                </tbody>
+            </table>
+            <button type="submit" class="btn btn-primary">Submit Order</button>
+        </form>
+        <h3>Total Price: <span id="total-price">0.00</span></h3>
+        <a href="{% url 'home' %}" class="btn btn-danger mt-3">Back to Home</a>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('order-form');
+            const alertContainer = document.getElementById('alert-container');
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                // Calculate total price
+                let totalPrice = 0;
+                const quantityInputs = document.querySelectorAll('.quantity');
+                quantityInputs.forEach(input => {
+                    const row = input.closest('tr');
+                    const price = parseFloat(row.cells[2].innerText);
+                    const quantity = parseInt(input.value);
+                    totalPrice += price * quantity;
+                });
+
+                // Check if total price is zero
+                if (totalPrice === 0) {
+                    alertContainer.innerHTML = '<div class="alert alert-danger">Select at least one item.</div>';
+                    return;
+                }
+
+                const formData = new FormData(form);
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', '', true);
+                xhr.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+                xhr.onload = function () {
+                    const response = JSON.parse(xhr.responseText);
+                    alertContainer.innerHTML = '';
+
+                    if (response.success) {
+                        alertContainer.innerHTML = `<div class="alert alert-success">${response.message}</div>`;
+                        // Optionally redirect or show success message
+                        window.location.href = '{% url "home" %}';
+                    } else {
+                        alertContainer.innerHTML = `<div class="alert alert-danger">${response.message}</div>`;
+                    }
+                };
+                xhr.send(formData);
+            });
+
+            // Update total price on input change
+            const quantityInputs = document.querySelectorAll('.quantity');
+            const totalPriceElement = document.getElementById('total-price');
+            quantityInputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    let totalPrice = 0;
+                    quantityInputs.forEach(input => {
+                        const row = input.closest('tr');
+                        const price = parseFloat(row.cells[2].innerText);
+                        const quantity = parseInt(input.value);
+                        totalPrice += price * quantity;
+                    });
+                    totalPriceElement.innerText = totalPrice.toFixed(2);
+                });
+            });
+        });
+    </script>
+</body>
+</html>

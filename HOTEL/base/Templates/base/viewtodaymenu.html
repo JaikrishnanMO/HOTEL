@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Today Menu</title>
+    <link rel="stylesheet" href="{% static "css/viewtodaymenu.css" %}">
+</head>
+<body>
+    {% include "Asidenav.html" %}
+    <div class="content">
+        <div class="container">
+            <h1 class="text-center">TODAY MENU</h1>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ITEM NAME</th>
+                            <th>PRICE</th>
+                            <th>DELETE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for x in today_menu %}
+                        <tr>
+                            <td>{{ x.add_item }}</td>
+                            {% if x.add_item %}
+                                <td>{{ x.add_item.price }}</td>
+                            {% else %}
+                                <td>Not available</td>  
+                            {% endif %}
+                            <td><a href="{% url 'delete_today_menu' x.id %}" class="button delete-button">Delete</a></td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

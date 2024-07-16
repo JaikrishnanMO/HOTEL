@@ -1,0 +1,66 @@
+/* nav.css */
+
+body {
+    padding-top: 70px; /* Adjust according to the height of your fixed navbar */
+}
+
+.navbar {
+    background-color:#000000; /* Dark background color */
+    box-shadow: 0 4px 6px rgba(202, 109, 109, 0.1); /* Subtle shadow for better separation */
+    color: white;
+}
+
+.navbar-brand-custom {
+    font-family: 'Arial', sans-serif;
+    font-size: 2rem; /* Increase the font size */
+    color: #ffffff !important; /* Ensure the heading is white */
+}
+
+.nav-link {
+    color: #ffffff !important;
+    margin-right: 1rem;
+    transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ffc107 !important; /* Highlight color on hover */
+}
+
+.navbar-toggler {
+    border-color: #12111f;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%281, 1, 1, 0.5%29' stroke-width='2' linecap='round' linejoin='round' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+}
+
+.dropdown-menu-custom {
+    background-color: #343a40; /* Same background as navbar */
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-item {
+    color: #ffffff;
+}
+
+.dropdown-item:hover {
+    background-color: #495057; /* Slightly lighter background on hover */
+    color: #ffc107;
+}
+
+.navbar-nav .nav-item .nav-link {
+    color: #ffffff !important; /* Ensure all nav links are white */
+}
+
+.navbar-nav .nav-item .nav-link:hover {
+    color: #ffc107 !important; /* Highlight color on hover */
+}
+
+.nav-item.dropdown .nav-link {
+    color: #ffffff !important; /* Ensure dropdown link is white */
+}
+
+.nav-item.dropdown .nav-link:hover {
+    color: #ffc107 !important; /* Highlight color on hover */
+}
